@@ -7,13 +7,13 @@ URL.
 
 Currently all API are exposed.
 
-# POST - localhost:8081/shortenURL
-# Request Body : 
+POST - localhost:8081/shortenURL
+Request Body : 
 {
     "url": "http://flipkart.com"
 }
 
-#GET - localhost:8081/getAllShortUrls
+GET - localhost:8081/getAllShortUrls
 
 
 
