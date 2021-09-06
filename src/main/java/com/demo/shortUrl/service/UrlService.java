@@ -48,6 +48,7 @@ public class UrlService implements IUrlService{
             UrlEntity urlEntity = UrlEntityOptional.get();
             urlEntity.setAccessedCount(urlEntity.getAccessedCount()+1);
             urlRepository.save(urlEntity);
+
             return urlEntity.getUrl();
         }else {
             throw new HttpClientErrorException(HttpStatus.NOT_FOUND,"URL NOT FOUND");

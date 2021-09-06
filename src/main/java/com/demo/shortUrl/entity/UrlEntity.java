@@ -3,6 +3,7 @@ package com.demo.shortUrl.entity;
 
 import com.demo.shortUrl.model.UrlModel;
 import com.demo.shortUrl.util.Constants;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -30,8 +31,10 @@ public class UrlEntity {
 
     private Integer accessedCount;
 
+    @JsonIgnore
     private LocalDateTime createdDate;
 
+    @JsonIgnore
     private LocalDateTime updatedDate;
 
     public static UrlEntity of(UrlModel urlModel) {

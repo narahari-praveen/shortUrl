@@ -29,4 +29,13 @@ public class Utils {
         }
         return stringBuilder.toString();
     }
+
+    public static String verifyUrl(String str){
+        if(str.contains("http://") || str.contains("https://")){
+            return str;
+        }else{
+            str += "http://";
+            return str;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.demo.shortUrl.controller;
 
+import com.demo.shortUrl.advice.TimeTracker;
 import com.demo.shortUrl.model.ResponseMetaData;
 import com.demo.shortUrl.model.UrlModel;
 import com.demo.shortUrl.service.IUrlService;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URI;
 import java.util.List;
 
 
@@ -22,6 +22,7 @@ public class UrlController {
 
     private final IUrlService iUrlService;
 
+    @TimeTracker
     @PostMapping("/shortenURL")
     protected ResponseEntity shortenURL(@Validated @RequestBody UrlModel urlModel){
         UrlModel model = iUrlService.shortenURL(urlModel);
@@ -29,6 +30,7 @@ public class UrlController {
         return ResponseEntity.ok(model);
     }
 
+    @TimeTracker
     @GetMapping("/{shortUrlId}")
     protected void redirectToURL(@PathVariable String shortUrlId, HttpServletResponse httpServletResponse){
         String url = iUrlService.redirectToURL(shortUrlId);
@@ -41,6 +43,7 @@ public class UrlController {
 
     }
 
+    @TimeTracker
     @GetMapping("/getAllShortUrls")
     protected ResponseEntity getAllShortUrls(){
         List<UrlModel> listOfShortUrls =  iUrlService.getAllShortUrls();
